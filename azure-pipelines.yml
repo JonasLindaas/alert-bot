@@ -27,4 +27,4 @@ steps:
       mavenPomFile: 'pom.xml'
       goals: 'spring-boot:build-image'
       publishJUnitResults: false
-      jdkVersionOption: '1.11'
+      jdkVersionOption: '1.17'
