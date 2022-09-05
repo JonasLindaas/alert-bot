@@ -10,15 +10,17 @@ public class Test {
 
     @Autowired
     public Test() {
-        DiscordApi api = new DiscordApiBuilder()
-                .setToken("")
-                .login().join();
+//        DiscordApi api = new DiscordApiBuilder()
+//                .setToken("")
+//                .login().join();
+//
+//        api.addMessageCreateListener(event -> {
+//            if (event.getMessageContent().equalsIgnoreCase("ping")) {
+//                event.getChannel().sendMessage("pong");
+//            }
+//        });
+        System.out.println("Hello DevOps!");
 
-        api.addMessageCreateListener(event -> {
-            if (event.getMessageContent().equalsIgnoreCase("ping")) {
-                event.getChannel().sendMessage("pong");
-            }
-        });
     }
 
 }
