@@ -8,6 +8,9 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
+  
+variables:
+  - group: alert-bot-variables
 
 jobs: 
   - job: BuildJob
@@ -38,14 +41,5 @@ jobs:
           repository: 'alert-bot'
           command: 'push'
           tags: 'latest'
-  
-  - deployment: VMDeploy
-    displayName: Deploy to VM
-    environment:
-      name: alert-bot-env-prod
-      resourceType: VirtualMachine
-    strategy:
-      runOnce:
-        deploy:
-          steps:
-            - script: echo "Hello World!"
+      - script: echo Test key is $(test-discord-bot-key)
+        displayName: Run Variable Group test
