@@ -10,9 +10,9 @@ pool:
   vmImage: ubuntu-latest
   
 variables:
+  - group: alert-bot-variables
   - name: env.test.variable
     value: $(test-discord-bot-key)
-  - group: alert-bot-variables
 
 
 jobs: 
@@ -44,5 +44,5 @@ jobs:
           repository: 'alert-bot'
           command: 'push'
           tags: 'latest'
-      - script: echo Test key is $(test-discord-bot-key)
+      - script: echo Test key is $(test-discord-bot-key), test variable is $(env.test.variable)
         displayName: Run Variable Group test
