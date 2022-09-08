@@ -19,7 +19,12 @@ public class Test {
 //                event.getChannel().sendMessage("pong");
 //            }
 //        });
-        System.out.println("Hello DevOps!");
+
+        // Testing to get variables from YAML pipeline using environmental variables
+        // Doc mentioned that variables are uppercased when passed to environment, hence test 2
+
+        System.out.println("Test 1:" + System.getenv("env-test-variable"));
+        System.out.println("Test 2:" + System.getenv("$ENV_TEST_VARIABLE"));
 
     }
 

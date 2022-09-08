@@ -10,7 +10,10 @@ pool:
   vmImage: ubuntu-latest
   
 variables:
+  - name: env.test.variable
+    value: $(test-discord-bot-key)
   - group: alert-bot-variables
+
 
 jobs: 
   - job: BuildJob
