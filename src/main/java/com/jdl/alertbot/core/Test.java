@@ -18,8 +18,7 @@ public class Test {
 //            }
 //        });
 
-        // Seems the '$' was not needed, this should hopefully work:
-        System.out.println("Test 2:" + System.getenv("ENV_TEST_VARIABLE"));
+        System.out.println("Test:" + System.getenv("ENV_TEST_VARIABLE"));
 
     }
 

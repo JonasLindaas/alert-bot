@@ -8,18 +8,14 @@ trigger:
 
 pool:
   vmImage: ubuntu-latest
-  
-variables:
-  - group: alert-bot-variables
-  - name: env.test.variable
-    value: $(test-discord-bot-key)
 
 
 jobs: 
   - job: BuildJob
-    displayName: Builds the maven file, composes a Docker Image, and pushes the Docker image to Azure Container Registry
+    displayName: Build Job
     steps:
       - task: Maven@3
+        displayName: Compile Maven artefact.
         inputs:
           mavenPomFile: 'pom.xml'
           mavenOptions: '-Xmx3072m'
@@ -39,10 +35,9 @@ jobs:
           jdkVersionOption: '1.17'
       
       - task: Docker@2
+        displayName: Push Docker image to Azure Container Repository.
         inputs:
           containerRegistry: 'jdlContainersConnection'
           repository: 'alert-bot'
           command: 'push'
           tags: 'latest'
-      - script: echo Test key is $(test-discord-bot-key), test variable is $(env.test.variable)
-        displayName: Run Variable Group test
