@@ -9,6 +9,10 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  - group: alert-bot-variables
+  - name: DISCORD_BOT_TOKEN
+    value: $(test-discord-bot-key)
 
 jobs: 
   - job: BuildJob
